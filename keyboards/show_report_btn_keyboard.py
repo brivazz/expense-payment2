@@ -17,7 +17,7 @@ async def show_report_btn_menu():
     my_zp_btn = InlineKeyboardButton(text='Моя ЗП', callback_data='show_report_my_zp_btn')
     my_love_zp_btn = InlineKeyboardButton(text='Любимая ЗП', callback_data='show_report_my_love_zp_btn')
     parents_btn = InlineKeyboardButton(text='Родители', callback_data='show_report_parents_btn')
-    all_expense_month_btn = InlineKeyboardButton(text='Общие за месяц', callback_data='all_expense_month_btn')
+    all_month_expenses_btn = InlineKeyboardButton(text='Общие за месяц', callback_data='all_month_expenses_btn')
     all_time_all_expenses_btn = InlineKeyboardButton(text='Общие за все время', callback_data='all_time_all_expenses_btn')
     back_from_show_report_menu_btn = InlineKeyboardButton(text='Назад', callback_data='back_from_show_report_menu_btn')
 
@@ -26,7 +26,7 @@ async def show_report_btn_menu():
     show_report_menu.add(travel_btn, mob_tel_btn, leisure_btn)
     show_report_menu.add(rent_commun_payments_btn, other_payments_btn)
     show_report_menu.add(my_zp_btn, parents_btn, my_love_zp_btn)
-    show_report_menu.add(all_expense_month_btn, all_time_all_expenses_btn)
+    show_report_menu.add(all_month_expenses_btn, all_time_all_expenses_btn)
     show_report_menu.add(back_from_show_report_menu_btn)
 
     return show_report_menu

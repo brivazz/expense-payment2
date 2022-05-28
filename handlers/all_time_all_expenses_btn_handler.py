@@ -3,7 +3,7 @@ from aiogram.types import CallbackQuery
 from utils.create_bot import dp, bot
 from messages.all_time_all_expenses_btn_message import all_time_all_expenses_msg
 from messages.show_report_btn_message import show_report_btn_msg
-from keyboards.all_time_all_expenses_btn_keyboard import all_time_all_expenses_menu
+from keyboards.show_all_time_all_expenses_btn_keyboard import all_time_all_expenses_menu
 from keyboards.show_report_btn_keyboard import show_report_btn_menu
 
 

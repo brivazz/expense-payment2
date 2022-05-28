@@ -21,6 +21,25 @@ async def all_time_all_expenses_report():
     return count
 
 
+async def all_expenses_month_report():
+    month = datetime.date.today()
+    now_month = str(month).split('-')[1]
+    count = 0
+    with db:
+        date = Payment.select()
+        for d in date:
+            num = str(d.payment_date).split('-')[1]
+            if num == now_month:
+                count += d.amount
+    return count
+
+
+
+
+
+
+
+
 async def show_month(call):
     month = datetime.date.today()
     now_month = str(month).split('-')[1]

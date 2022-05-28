@@ -12,17 +12,13 @@ async def save_to_db(call):
         )
 
 
-async def from_db(call):
-    res_list = []
+async def all_time_all_expenses_report():
     with db:
-        query = Expense.get(Expense.product_name == call.message.text)
-        result = (Payment.select().where(
-                    Payment.expense_id == query).order_by(
-                        Payment.payment_date.desc()))
+        result = Payment.select()
+        count = 0
         for res in result:
-            res_list.append(
-                [res.amount, datetime.datetime.strftime(res.payment_date, '%d.%m.%Y')])
-    return res_list
+            count += res.amount
+    return count
 
 
 async def show_month(call):

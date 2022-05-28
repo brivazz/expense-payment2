@@ -1,7 +1,7 @@
 import datetime
 from peewee import IntegrityError
 from peewee import (SqliteDatabase, Model,
-                    CharField, DateTimeField,
+                    CharField, DateField,
                     IntegerField, ForeignKeyField)
 
 
@@ -22,8 +22,8 @@ class Expense(BaseModel):
 
 class Payment(BaseModel):
     amount = IntegerField()
-    payment_date = DateTimeField(default=datetime.date.today())
-    expense_id = ForeignKeyField(Expense)  # , field=Expense.product_name
+    payment_date = DateField(default=datetime.date.today())
+    expense_id = ForeignKeyField(Expense)
 
     class Meta:
         table_name = 'payments'
@@ -37,8 +37,18 @@ async def create_tables():
 async def fields_expense():
     fields_expense = [
         {'product_name': 'Продукты'},
-        {'product_name': 'Телефон'},
-        {'product_name': 'Другие расходы'}
+        {'product_name': 'Табак'},
+        {'product_name': 'Алкоголь'},
+        {'product_name': 'Одежда и обувь'},
+        {'product_name': 'Детский сад'},
+        {'product_name': 'Проезд'},
+        {'product_name': 'Моб.связь'},
+        {'product_name': 'Досуг'},
+        {'product_name': 'Аренда и ком.платежи'},
+        {'product_name': 'Другие расходы'},
+        {'product_name': 'Моя ЗП'},
+        {'product_name': 'Родители'},
+        {'product_name': 'Любимая ЗП'},
     ]
     with db:
         try:

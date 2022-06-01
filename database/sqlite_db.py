@@ -19,7 +19,6 @@ async def now_year():
 async def save_to_db(button_text, amount):
     with db.atomic():
         query = Expense.get(Expense.product_name == button_text)
-        print(query)
         Payment.create(
             amount=int(amount),
             expense_id=query
@@ -28,11 +27,13 @@ async def save_to_db(button_text, amount):
 
 async def all_time_all_expenses_report_db():
     with db:
-        result = Payment.select()
+        result = Payment.select().where(
+                    (Payment.expense_id != 11) &
+                    (Payment.expense_id != 12) &
+                    (Payment.expense_id != 13))
         count = 0
         for res in result:
             count += res.amount
-            print(res.amount)
     return count
 
 
@@ -41,7 +42,10 @@ async def all_expenses_month_report_db():
     count = 0
     with db:
         data = Payment.select().where(
-                Payment.payment_date.month == date_now.month)
+                (Payment.payment_date.month == date_now.month) &
+                (Payment.expense_id != 11) &
+                (Payment.expense_id != 12) &
+                (Payment.expense_id != 13))
         for d in data:
             count += d.amount
     return count
@@ -52,7 +56,6 @@ async def show_report_in_this_month_db(category_text):
     count = 0
     with db:
         query = Expense.get(Expense.product_name == category_text)
-        print('show_report_in_this_month_db==', query, category_text)
         date = Payment.select().where(
                 (Payment.expense_id == query) &
                 (Payment.payment_date.month == now_month.month))
@@ -66,7 +69,6 @@ async def show_report_for_the_year_db(category_text):
     count = 0
     with db:
         query = Expense.get(Expense.product_name == category_text)
-        print('show_report_for_the_year_db==', query, category_text)
         data = Payment.select().where(
                 (Payment.expense_id == query) &
                 (Payment.payment_date.year == now_year.year))
@@ -85,7 +87,6 @@ async def show_report_by_months_db(category_text):
     months_list = []
     with db:
         query = Expense.get(Expense.product_name == category_text)
-        print('show_report_by_months_db==', query, category_text)
         for k, v in month_name.items():
             if v > now_date.month:
                 break

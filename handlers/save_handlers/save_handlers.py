@@ -3,16 +3,19 @@ from aiogram import types
 from aiogram.utils.exceptions import MessageToDeleteNotFound
 
 from utils.create_bot import dp, bot
+from database.sqlite_db import save_to_db
+
 from messages.save_messages.save_message import save_msg
 from messages.start_message import start_msg
+
 from keyboards.save_keyboards.save_keyboard import save_menu
 from keyboards.start_keyboard import start_menu_kb
 from keyboards.save_keyboards.replay_keyboard import replay_menu
-from database.sqlite_db import save_to_db
 
 
 @dp.callback_query_handler(text=['products_btn',
-                                 'tabak_btn', 'alcohol_btn',
+                                 'tabak_btn',
+                                 'alcohol_btn',
                                  'clothing_and_shoes',
                                  'mob_tel_btn',
                                  'travel_btn',
@@ -26,54 +29,43 @@ from database.sqlite_db import save_to_db
                                  'show_report_btn'])
 async def question(call: types.CallbackQuery):
     await call.answer()
+
+    global call_message_id
+    call_message_id = call.message.message_id
+
     global button_text
     if call.data == 'products_btn':
         button_text = call.message.reply_markup.inline_keyboard[0][0].text
-        print(button_text)
     elif call.data == 'tabak_btn':
         button_text = call.message.reply_markup.inline_keyboard[0][1].text
-        print(button_text)
     elif call.data == 'alcohol_btn':
         button_text = call.message.reply_markup.inline_keyboard[0][2].text
-        print(button_text)
     elif call.data == 'clothing_and_shoes':
         button_text = call.message.reply_markup.inline_keyboard[1][0].text
-        print(button_text)
     elif call.data == 'kindergarten_btn':
         button_text = call.message.reply_markup.inline_keyboard[1][1].text
-        print(button_text)
     elif call.data == 'travel_btn':
         button_text = call.message.reply_markup.inline_keyboard[2][0].text
-        print(button_text)
     elif call.data == 'mob_tel_btn':
         button_text = call.message.reply_markup.inline_keyboard[2][1].text
-        print(button_text)
     elif call.data == 'leisure_btn':
         button_text = call.message.reply_markup.inline_keyboard[2][2].text
-        print(button_text)
     elif call.data == 'rent_commun_payments_btn':
         button_text = call.message.reply_markup.inline_keyboard[3][0].text
-        print(button_text)
     elif call.data == 'other_payments_btn':
         button_text = call.message.reply_markup.inline_keyboard[3][1].text
-        print(button_text)
     elif call.data == 'my_zp_btn':
         button_text = call.message.reply_markup.inline_keyboard[4][0].text
-        print(button_text)
     elif call.data == 'parents_btn':
         button_text = call.message.reply_markup.inline_keyboard[4][1].text
-        print(button_text)
     elif call.data == 'my_love_zp_btn':
         button_text = call.message.reply_markup.inline_keyboard[4][2].text
-        print(button_text)
     await bot.edit_message_text(
         chat_id=call.from_user.id,
         message_id=call.message.message_id,
         text=await save_msg(),
         reply_markup=''
     )
-    global call_message_id
-    call_message_id = call.message.message_id
 
 
 @dp.callback_query_handler(text=['save_btn',

@@ -48,7 +48,7 @@ async def fields_expense():
         {'product_name': 'Другие расходы'},
         {'product_name': 'Моя ЗП'},
         {'product_name': 'Родители'},
-        {'product_name': 'Любимая ЗП'},
+        {'product_name': 'Любимой ЗП'},
     ]
     with db:
         try:

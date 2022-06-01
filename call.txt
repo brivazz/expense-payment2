@@ -1,0 +1,66 @@
+{
+    "id": "6799932632364545040",
+    "from": {
+        "id": 1583232691,
+        "is_bot": false,
+        "first_name": "Сергей",
+        "last_name": "Анатольевич",
+        "username": "Sergey_Anatolev",
+        "language_code": "ru"
+    },
+    "message": {
+        "message_id": 2861,
+        "from": {
+            "id": 5056885071,
+            "is_bot": true,
+            "first_name": "Чикипибарум",
+            "username": "chkpbarumbot"
+        },
+        "chat": {
+            "id": 1583232691,
+            "first_name": "Сергей",
+            "last_name": "Анатольевич",
+            "username": "Sergey_Anatolev",
+            "type": "private"
+        },
+        "date": 1654003903,
+        "edit_date": 1654005088,
+        "text": "Показать записи:",
+        "reply_markup": {
+            "inline_keyboard": [
+                [
+                    {"text": "Продукты","callback_data": "show_report_products_btn"},
+                    {"text": "Табак", "callback_data": "show_report_tabak_btn"},
+                    {"text": "Алкоголь", "callback_data": "show_report_alcohol_btn"}
+                ],
+                [
+                    {"text": "Одежда и обувь", "callback_data": "show_report_clothing_and_shoes"},
+                    {"text": "Детский сад", "callback_data": "show_report_kindergarten_btn"}
+                ],
+                [
+                    {"text": "Проезд", "callback_data": "show_report_travel_btn"},
+                    {"text": "Моб.связь", "callback_data": "show_report_mob_tel_btn"},
+                    {"text": "Досуг", "callback_data": "show_report_leisure_btn"}
+                ],
+                [
+                    {"text": "Аренда и ком.платежи", "callback_data": "show_report_rent_commun_payments_btn"},
+                    {"text": "Другие расходы", "callback_data": "show_report_other_payments_btn"}
+                ],
+                [
+                    {"text": "Моя ЗП", "callback_data": "show_report_my_zp_btn"},
+                    {"text": "Родители", "callback_data": "show_report_parents_btn"},
+                    {"text": "Любимой ЗП", "callback_data": "show_report_my_love_zp_btn"}
+                ],
+                [
+                    {"text": "Общие за месяц", "callback_data": "show_all_month_expenses_btn"},
+                    {"text": "Общие за все время", "callback_data": "show_all_time_all_expenses_btn"}
+                ],
+                [
+                    {"text": "Назад", "callback_data": "back_from_show_report_menu_btn"}
+                ]
+            ]
+        }
+    },
+    "chat_instance": "7714075928912392476",
+    "data": "show_report_products_btn"
+}

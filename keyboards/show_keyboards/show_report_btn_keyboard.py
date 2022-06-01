@@ -15,10 +15,10 @@ async def show_report_btn_menu():
     kindergarten_btn = InlineKeyboardButton(text='Детский сад', callback_data='show_report_kindergarten_btn')
     other_payments_btn = InlineKeyboardButton(text='Другие расходы', callback_data='show_report_other_payments_btn')
     my_zp_btn = InlineKeyboardButton(text='Моя ЗП', callback_data='show_report_my_zp_btn')
-    my_love_zp_btn = InlineKeyboardButton(text='Любимая ЗП', callback_data='show_report_my_love_zp_btn')
     parents_btn = InlineKeyboardButton(text='Родители', callback_data='show_report_parents_btn')
-    all_month_expenses_btn = InlineKeyboardButton(text='Общие за месяц', callback_data='all_month_expenses_btn')
-    all_time_all_expenses_btn = InlineKeyboardButton(text='Общие за все время', callback_data='all_time_all_expenses_btn')
+    my_love_zp_btn = InlineKeyboardButton(text='Любимой ЗП', callback_data='show_report_my_love_zp_btn')
+    all_month_expenses_btn = InlineKeyboardButton(text='Общие за месяц', callback_data='show_all_month_expenses_btn')
+    all_time_all_expenses_btn = InlineKeyboardButton(text='Общие за все время', callback_data='show_all_time_all_expenses_btn')
     back_from_show_report_menu_btn = InlineKeyboardButton(text='Назад', callback_data='back_from_show_report_menu_btn')
 
     show_report_menu.add(products_btn, tabak_btn, alcohol_btn)

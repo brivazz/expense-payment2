@@ -17,8 +17,7 @@ async def on_startup(dp):
 
 
 async def on_shutdown(dp):
-    # await on_shutdown_notify(dp)
-    pass
+    await on_shutdown_notify(dp)
 
 
 if __name__ == '__main__':
